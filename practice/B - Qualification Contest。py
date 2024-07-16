@@ -1,0 +1,16 @@
+
+ans = []
+
+N, K = map(int, input().split())
+
+for _ in range(N):
+    name = input()
+    ans.append(name)
+
+ans = ans[:K]
+ans.sort()
+
+for i in range(K):
+    print(ans[i])
+
+
