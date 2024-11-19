@@ -1,22 +1,24 @@
+import math
+import os
+import random
+import re
+import sys
 
-total_odd = 0
-total = 0
-for i in range(4):
-    for j in range(4):
-        for k in range(4):
-            i_str = str(i)
-            j_str = str(j)
-            k_str = str(k)
-            ans = int(i_str + j_str + k_str)
-            if ans % 2 != 0:
-                total_odd += 1
+def diagonalDifference(arr):
+    # Write your code here
+    left_index = 0
+    right_index = len(arr) -1
+    left_total = 0
+    right_total = 0
+    for i in range(len(arr)):
+        row = arr[i]
+        left_total += row[left_index]
+        right_total += row[right_index]
+        left_index += 1
+        right_index -= 1
 
-            if ans > 230:
-                total += 1
+    return abs(left_total - right_total)
 
-
-
-print(total_odd)
-print(total)
-
-
+arr = [[11, 2, 4], [4, 5, 6], [10, 8, -12]]
+result = diagonalDifference(arr)
+print(result)
